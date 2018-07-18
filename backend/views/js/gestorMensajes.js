@@ -37,3 +37,13 @@ $(".leermensaje").click(function() {
     });
 
 });
+
+//enviar correo masivo
+$("#enviarCorreoMasivo").click(function() {
+	$("#visorMensaje").html('<form method="post">' + 
+							  '<p>Para: Todos los suscriptores</p>' +
+							  '<input type="text" placeholder="Titulo del mensaje" class="form-control" name="tituloMasivo">' +
+							  '<textarea name="mensajeMasivo" id="" cols="30" rows="5" placeholder="Escribe tu mensaje..." class="form-control"></textarea>' +
+							  '<input type="submit" class="form-control btn btn-primary" value="Enviar">' +
+							'</form>');
+});

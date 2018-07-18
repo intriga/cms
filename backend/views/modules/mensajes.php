@@ -37,7 +37,7 @@ MENSAJES
 
    <div >
     <hr>
-     <button class="btn btn-success">Enviar mensaje a todos los usuarios</button>
+     <button id="enviarCorreoMasivo" class="btn btn-success">Enviar mensaje a todos los usuarios</button>
       <hr>
    </div>
 
@@ -47,6 +47,7 @@ MENSAJES
 
         $responderMensajes = new MensajesController();
         $responderMensajes -> responderMensajesController();
+        $responderMensajes -> mensajesMasivosController();
        ?>
 
    </div>
@@ -56,3 +57,4 @@ MENSAJES
   </div>
 
 <!--====  Fin de MENSAJES  ====-->
+

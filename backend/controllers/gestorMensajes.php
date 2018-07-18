@@ -63,7 +63,7 @@ class MensajesController{
 			$para = $email . ', ';
 			$para .= "intriga@plusultraviajes.com";
 
-			$título = 'Recordatorio de cumpleaños para Agosto';
+			$titulo = 'Recordatorio de cumpleaños para Agosto';
 
 			$mensaje = '<html>
 						<head>
@@ -87,7 +87,7 @@ class MensajesController{
 
 			$cabeceras .= 'From: Recordatorio <intriga@plusultraviajes.com>' . "\r\n";
 
-			$envio = mail($para, $título, $mensaje, $cabeceras);
+			$envio = mail($para, $titulo, $mensaje, $cabeceras);
 
 			if ($envio) {
 				 echo '<script>
@@ -105,6 +105,70 @@ class MensajesController{
 		                });
 		              </script>';
 			}
+		}
+	}
+
+	#enviar mensajes masivos
+	#-----------------------------------
+	public function mensajesMasivosController(){
+		
+		if (isset($_POST["tituloMasivo"])) {
+
+			$respuesta = MensajesModel::seleccionarEmailSuscriptores("suscriptores");
+
+			foreach ($respuesta as $row => $item) {
+				
+				$titulo = $_POST["tituloMasivo"];
+				$mensaje = $_POST["mensajeMasivo"];
+
+				$titulo = 'mensaje para todos';
+
+				$para = $item["email"];
+		
+
+				$mensaje = '<html>
+							<head>
+							  <title>Recordatorio de cumpleaños para Agosto</title>
+							</head>
+							<body>
+
+							<h1>hola '.$item["nombre"].'</h1>
+							<p>'.$mensaje.'</p>
+							<p>intriga fsociety</p>
+							<p>number: 000.00.00.</p>
+							<br>
+
+							<a href="#"><img src="http://sites.psu.edu/lby5015engl15a001/wp-content/uploads/sites/9209/2014/02/books.jpg"></a>				
+							
+							</body>
+							</html>';
+
+				$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
+				$cabeceras .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
+
+				$cabeceras .= 'From: Recordatorio <intriga@plusultraviajes.com>' . "\r\n";
+
+				$envio = mail($para, $titulo, $mensaje, $cabeceras);
+
+				if ($envio) {
+					 echo '<script>
+			                swal({
+			                  title: "¡OK!",
+			                  text: "¡El mensaje se ha borrado correctamente!",
+			                  type: "success",
+			                  confirmButtonText: "Cerrar",
+			                  closeOnConfirm: false
+			                },
+			                function(isConfirm){
+			                  if (isConfirm) {
+			                    window.location = "mensajes";
+			                  }
+			                });
+			              </script>';
+				}
+
+			}			
+
 		}
 	}
 }
