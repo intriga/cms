@@ -1,0 +1,8 @@
+# impedir que se vea el listado de contenidos de directorios
+
+Options All -Indexes
+
+# Url amigable
+
+RewriteEngine on
+RewriteRule ^(\w+)$ index.php?action=$1
