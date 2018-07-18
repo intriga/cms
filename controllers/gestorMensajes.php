@@ -12,7 +12,7 @@ class MensajesController{
 			   	
 			   	#enviar correo electronico
 			   	#---------------------------------------------------
-			   	$correoDestino = "intriga2402@gmail.com";
+			   	$correoDestino = "intriga@plusultraviajes.com";
 			    $asunto = "mensajes de prueba";
 			    $mensaje = "Nombre: ".$_POST["nombre"]."\n"."\n".
 			    			"Email: ".$_POST["email"]."\n"."\n".
@@ -20,6 +20,21 @@ class MensajesController{
 			    $cabezera = "FROM: Sitio web" ."\r\n". 
 			    "CC: ".$_POST["email"];
 			   	$envio = mail($correoDestino, $asunto, $mensaje, $cabezera);
+
+			   	$datosController = array('nombre' => $_POST["nombre"], 
+			   							 'email' => $_POST["email"],
+			   							 'mensaje' => $_POST["mensaje"]);
+
+			   	#almacenar en base de datos el suscriptor
+			   	#---------------------------------------------------
+			   	$datosSuscriptor = $_POST["email"];
+			   	$revisarSuscriptor = MensajesModel::revisarSuscriptorModel($datosSuscriptor, "suscriptores");
+			   	
+			   	//si suscriptor email no existe
+			   	if (count($revisarSuscriptor["email"]) == 0) {
+			   		MensajesModel::registroSuscriptorModel($datosController, "suscriptores");
+			   	}
+
 			   	
 			   	
 				#almacenar en base de datos el mensaje
@@ -30,7 +45,7 @@ class MensajesController{
 
 			   $respuesta = MensajesModel::registroMensajesModel($datosController, "mensajes");
 
-			   if ($envio == true && $respuesta == "ok") {
+			   if (/*$envio == true &&*/ $respuesta == "ok") {
 			   	echo '<script>
 		                swal({
 		                  title: "¡OK!",
