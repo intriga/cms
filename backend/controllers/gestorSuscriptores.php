@@ -45,4 +45,12 @@ class SuscriptoresController{
 	      }
 		}
 	}
+
+	#impresion suscriptores 
+	#----------------------------------------------
+	public function ImpresionSuscriptoresController($datos){
+		$datosController = $datos;
+		$respuesta = SuscriptoresModel::mostrarSuscriptoresModel($datosController);
+		return $respuesta;
+	}
 }

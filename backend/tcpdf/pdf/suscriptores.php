@@ -39,6 +39,23 @@ $html1 = <<<EOF
 EOF;
 
 $pdf->writeHTML($html1, false, false, false, false, '');
+$respuesta = SuscriptoresController::ImpresionSuscriptoresController("suscriptores");
+foreach ($respuesta as $row => $item) {
+$html2 = <<<EOF
+	
+	<table style="border: 1px solid #333; text-align:center; line-height: 20px; font-size:10px;">
+		<tr>
+			<td style="border: 1px solid #666;">$item[nombre]</td>
+			<td style="border: 1px solid #666;">$item[email]</td>
+		</tr>
+	</table>
+
+EOF;
+
+$pdf->writeHTML($html2, false, false, false, false, '');
+
+}
+
 $pdf->Output('suscriptores.pdf');
 
 }
