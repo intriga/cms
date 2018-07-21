@@ -23,61 +23,37 @@ SUSCRIPTORES
     <thead>
       <tr>
         <th>Usuario</th>
-        <th>Contraseña</th>
         <th>Email</th>
         <th>Acciones</th>
-              <th></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>
-              <td></td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>
-              <td></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>
-              <td></td>
-      </tr>
-        <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>
-              <td></td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>
-              <td></td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>
-              <td></td>
-      </tr>
+
+      <?php 
+
+        $suscriptores = new SuscriptoresController();
+        $suscriptores -> mostrarSuscriptoresController();
+        $suscriptores -> borrarSuscriptoresController();
+        
+       ?>
+     
+      
     </tbody>
   </table>
 
-  <button class="btn btn-warning pull-right" style="margin:20px;">Imprimir Suscriptores</button>
+  <a href="tcpdf/pdf/suscriptores.php" target="black">
+    <button class="btn btn-warning pull-right" style="margin:20px;">Imprimir Suscriptores</button>
+  </a>
   </div>
 
   </div>
+
+   <!--<tr>
+        <td>John</td>
+        <td>john@example.com</td>
+        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>    
+        <th></th>
+      </tr> -->
 
 <!--====  Fin de SUSCRIPTORES  ====-->
