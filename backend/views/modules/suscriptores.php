@@ -48,12 +48,25 @@ SUSCRIPTORES
   </div>
 
   </div>
+  
+  <script>
+    $(window).load(function() {
 
-   <!--<tr>
-        <td>John</td>
-        <td>john@example.com</td>
-        <td><span class="btn btn-danger fa fa-times quitarSuscriptor"></span></td>    
-        <th></th>
-      </tr> -->
+      var datos = new FormData();
+      datos.append('revisionSuscriptores', 1);
+
+      $.ajax({
+        url: "views/ajax/gestorRevision.php",
+        method: "POST",
+        data: datos,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(respuesta){
+          
+        }
+      });
+    });
+  </script>
 
 <!--====  Fin de SUSCRIPTORES  ====-->
