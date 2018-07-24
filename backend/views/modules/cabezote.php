@@ -35,8 +35,24 @@
   <div id="time" class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
 
-    <div class="text-center">Lunes, 12 de Septiembre de 2016</div>
-    <div class="text-center">12:56:00 pm</div>
+    <div class="text-center">
+      <?php 
+       
+
+        echo date("l").", ",date("d")." de ".date("F")." de ".date("Y");
+        
+       ?>
+    </div>
+
+    <div class="text-center">
+      <?php 
+       
+        date_default_timezone_set("America/Caracas");
+
+        echo '<div id="hora" hora="'.date("h").'" minutos="'.date("i").'" segundos="'.date("s").'" meridiano="'.date("a").'"></div>'
+        
+       ?>
+    </div>
 
   </div>
 
@@ -59,3 +75,37 @@
 </div>
 
 <!--====  Fin de CABEZOTE  ====-->
+
+<script>
+  //reloj dinamico
+  function reloj() {
+
+    hora = $("#hora").attr("hora");
+    minutos = $("#hora").attr("minutos");
+    segundos = $("#hora").attr("segundos");
+    meridiano = $("#hora").attr("meridiano");
+    
+    setInterval(function(){
+
+      if (segundos > 58) {
+        segundos = "0" + 0;
+        minutos = Number(minutos) + 1;
+      }
+      else{
+        segundos++;
+        if (segundos > 0 && segundos < 10) {
+          segundos = "0" + segundos++;
+        }
+      }
+
+      if (minutos > 59) {
+        window.location.reload();
+      }
+      
+
+      $("#hora").html(hora+":"+minutos+":"+segundos+":"+meridiano);
+    },1000);
+  }
+
+  reloj();
+</script>
