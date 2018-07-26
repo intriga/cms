@@ -4,5 +4,15 @@ $("#registrarPerfil").click(function() {
 });
 
 $("#subirFotoPerfil").change(function() {
-	$("#subirFotoPerfil").attr("name","nuevaImagen");
+	$("#subirFotoPerfil").attr("name","nuevoImagen");
 });
+
+//mostrar fomulario editar perfil
+$("#btnEditarPerfil").click(function() {
+	$("#editarPerfil").hide("fast");
+	$("#formEditarPerfil").show("fast");
+});
+
+$("#cambiarFotoPerfil").change(function() {
+	$("#cambiarFotoPerfil").attr("name","editarImagen");
+})
