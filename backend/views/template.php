@@ -60,6 +60,8 @@
 	<script src="views/js/gestorArticulos.js"></script>
 	<script src="views/js/gestorGaleria.js"></script>
 	<script src="views/js/gestorVideos.js"></script>
+	<script src="views/js/gestorMensajes.js"></script>
+	<script src="views/js/gestorPerfiles.js"></script>
 
 </body>
 
