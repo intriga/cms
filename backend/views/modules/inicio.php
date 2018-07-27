@@ -28,7 +28,7 @@ INICIO
 
     <li class="botonesInicio">
 
-      <a href="slide.html">
+      <a href="slide.php">
       <div style="background:#4CF53A">
       <span class="fa fa-toggle-right"></span>
       <p>Slide</p>
@@ -39,7 +39,7 @@ INICIO
 
     <li class="botonesInicio">
 
-      <a href="articulos.html">
+      <a href="articulos.php">
       <div style="background:#F640DA">
       <span class="fa fa-file-text-o"></span>
       <p>Artículos</p>
@@ -50,7 +50,7 @@ INICIO
 
     <li class="botonesInicio">
 
-      <a href="galeria.html">
+      <a href="galeria.php">
       <div style="background:#04E6DE">
       <span class="fa fa-image"></span>
       <p>Imágenes</p>
@@ -61,7 +61,7 @@ INICIO
 
     <li class="botonesInicio">
 
-      <a href="videos.html">
+      <a href="videos.php">
       <div style="background:#1434AD">
       <span class="fa fa-film"></span>
       <p>Videos</p>
@@ -70,16 +70,25 @@ INICIO
 
     </li>
 
-    <li class="botonesInicio">
+    <?php 
 
-      <a href="suscriptores.html">
-      <div style="background:#ED3E3E">
-      <span class="fa fa-users"></span>
-      <p>Suscriptores</p>
-      </div>
-      </a>
+    if ($_SESSION["rol"] == 0) {
+      echo '
 
-    </li>
+        <li class="botonesInicio">
+
+          <a href="suscriptores.php">
+          <div style="background:#ED3E3E">
+          <span class="fa fa-users"></span>
+          <p>Suscriptores</p>
+          </div>
+          </a>
+
+        </li>';
+
+      }
+
+    ?>
 
   </ul>
 

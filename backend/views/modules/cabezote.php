@@ -7,28 +7,37 @@
 
   <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
 
-    <ul>
-      <li  style="background: #333">
-        <a href="mensajes" style="color: #fff">
-                  <i class="fa fa-envelope"></i>
-                  <?php 
-                    $revisarMensajes = new MensajesController();
-                    $revisarMensajes -> mensajesSinRevisarController();
-                   ?>
-                </a>
-      </li>
+    <?php 
 
-      <li  style="background: #333">
-        <a href="suscriptores" style="color: #fff">
-                  <i class="fa fa-bell"></i>
-                  <?php 
-                    $revisarMensajes = new SuscriptoresController();
-                    $revisarMensajes -> suscriptoresSinRevisarController();
-                   ?>
-                </a>
-      </li>
+    if ($_SESSION["rol"] == 0) {
 
-    </ul>
+      echo '
+      <ul>
+        <li  style="background: #333">
+          <a href="mensajes" style="color: #fff">
+                    <i class="fa fa-envelope"></i>';
+                  
+                      $revisarMensajes = new MensajesController();
+                      $revisarMensajes -> mensajesSinRevisarController();
+                  
+      echo '</a>
+        </li>
+
+        <li  style="background: #333">
+          <a href="suscriptores" style="color: #fff">
+                    <i class="fa fa-bell"></i>';
+                  
+                      $revisarMensajes = new SuscriptoresController();
+                      $revisarMensajes -> suscriptoresSinRevisarController();
+                    
+      echo  '</a>
+        </li>
+
+      </ul>';
+
+    }
+
+     ?>
 
   </div>
 
