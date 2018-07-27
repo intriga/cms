@@ -101,6 +101,12 @@ PERFIL
   FIN EDITAR PERFIL
 ======================================-->
 
+<?php 
+
+if ($_SESSION["rol"] == 0) {
+
+    echo '
+
   <div id="crearPerfil" class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
 
@@ -137,10 +143,10 @@ PERFIL
 
     <input type="submit" id="guardarPerfil" value="Guardar Perfil" class="btn btn-primary">
 
-  </form> 
+  </form>';
+  
+}
 
-
-  <?php 
 
     $crearPerfil = new GestorPerfiles();
     $crearPerfil -> guardarPerfilController();
